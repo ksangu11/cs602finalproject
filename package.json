@@ -1,0 +1,19 @@
+{
+  "name": "cs602_finalproject_tobin",
+  "version": "1.0.0",
+  "description": "CS602 Final Project - Shopping Cart",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ksangu11/cs602finalproject.git"
+  },
+  "author": "Kristin Tobin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ksangu11/cs602finalproject/issues"
+  },
+  "homepage": "https://github.com/ksangu11/cs602finalproject#readme"
+}
