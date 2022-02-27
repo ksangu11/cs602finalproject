@@ -2,7 +2,7 @@
   "name": "cs602_finalproject_tobin",
   "version": "1.0.0",
   "description": "CS602 Final Project - Shopping Cart",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -15,5 +15,10 @@
   "bugs": {
     "url": "https://github.com/ksangu11/cs602finalproject/issues"
   },
-  "homepage": "https://github.com/ksangu11/cs602finalproject#readme"
+  "homepage": "https://github.com/ksangu11/cs602finalproject#readme",
+  "dependencies": {
+    "express": "^4.17.3",
+    "express-handlebars": "^6.0.2",
+    "mongoose": "^6.2.3"
+  }
 }

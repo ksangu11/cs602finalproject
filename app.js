@@ -1,0 +1,44 @@
+const express = require('express');
+const exphbs = require('express-handlebars');
+const app = express();
+const mongoose = require('mongoose');
+const config = require('./config/database.js');
+const Handlebars = require("handlebars");
+
+//Configure express-handlebars as view engine
+app.engine('hbs', exphbs.engine({
+    defaultLayout: 'main',
+    extname: '.hbs',
+    layoutsDir: __dirname + '/views/pages/',
+    partialsDir: __dirname + '/views/partials/',
+}));
+
+app.set('view engine', 'hbs');
+
+app.get('/', function (req, res) {
+    res.render("index");
+});
+
+//Connect to DBs
+mongoose.connect(config.database); // move to config file after fig out error
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error'));
+db.once('open', function() {
+    console.log('Connected to MongoDB');
+});
+
+//Register partials
+Handlebars.registerPartial('Header', '{{header}}');
+Handlebars.registerPartial('Footer', '{{footer}}');
+
+//Register helpers
+Handlebars.registerHelper('getCurrentYear', () =>{
+    return new Date().getFullYear()
+});
+
+//Start the server
+const port = 3000;
+app.listen(port, function() {
+    console.log('Server started on port ' + port);
+
+});
