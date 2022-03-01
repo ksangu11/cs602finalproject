@@ -11,6 +11,7 @@ app.engine('hbs', exphbs.engine({
     extname: '.hbs',
     layoutsDir: __dirname + '/views/layouts/',
     partialsDir: __dirname + '/views/partials/',
+    pageDir: __dirname + '/views/pages/',
 }));
 
 app.set('view engine', 'hbs');
@@ -19,7 +20,13 @@ app.get('/', function (req, res) {
     res.render("index");
 });
 
+app.get('/pages/products', function (req, res) {
+    res.render("pages/products");
+});
+
+//use static images
 app.use(express.static("public/img"));
+
 //Connect to DBs
 mongoose.connect(config.database);
 var db = mongoose.connection;
