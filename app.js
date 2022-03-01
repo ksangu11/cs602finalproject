@@ -9,7 +9,7 @@ const Handlebars = require("handlebars");
 app.engine('hbs', exphbs.engine({
     defaultLayout: 'main',
     extname: '.hbs',
-    layoutsDir: __dirname + '/views/pages/',
+    layoutsDir: __dirname + '/views/layouts/',
     partialsDir: __dirname + '/views/partials/',
 }));
 
@@ -19,8 +19,9 @@ app.get('/', function (req, res) {
     res.render("index");
 });
 
+app.use(express.static("public/img"));
 //Connect to DBs
-mongoose.connect(config.database); // move to config file after fig out error
+mongoose.connect(config.database);
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error'));
 db.once('open', function() {
